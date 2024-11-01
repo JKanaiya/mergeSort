@@ -1,6 +1,3 @@
-let lSorted = [];
-let rSorted = [];
-
 const merge = function (nArr, mArr) {
   let merged = [];
   let tot = nArr.length + mArr.length;
@@ -21,34 +18,15 @@ const merge = function (nArr, mArr) {
 };
 
 const unbalancedMerge = function (MainArr, subArr) {
-  MainArr = [...MainArr, ...subArr];
-  return MainArr;
+  return [...MainArr, ...subArr];
 };
-
-// split as even as possible
-let lContainer = [];
-let rContainer = [];
-let sorted = [];
-let rand = [];
 
 const mergeSort = function (arr) {
   if (arr.length <= 1) return arr;
-
-  let l = arr.slice(0, arr.length / 2);
-  let r = arr.slice(arr.length / 2);
-
-  lContainer.push(l);
-  rContainer.push(r);
-
-  // recursive for left side merge sorting
-  lSorted = mergeSort(lContainer[lContainer.length - 1]);
-  lContainer.pop();
-  // recursive for right side merge sorting
-  rSorted = mergeSort(rContainer[rContainer.length - 1]);
-  rContainer.pop();
-
-  console.log(lSorted, rSorted);
-  return merge(lSorted, rSorted);
+  return merge(
+    mergeSort(arr.slice(0, arr.length / 2)),
+    mergeSort(arr.slice(arr.length / 2))
+  );
 };
 
-console.log(mergeSort([4, 1, 2, 6, 3, 7, 8, 12, 11, 17]));
+console.log(mergeSort([1, 4, 6, 8, 2, 3, 5, 7, 9]));

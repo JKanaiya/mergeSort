@@ -14,7 +14,7 @@ cd mergeSort/MergeSort
 npm install
 ```
 
-4. Sort numbers given 
+3. Sort numbers given 
 ```bash
 # Give the numbers eg node mergeSort.js 1,4,5,3,6,1
 node mergeSort.js num1,num2,num3 ... num
